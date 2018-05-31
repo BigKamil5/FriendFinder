@@ -1,0 +1,78 @@
+<resources>
+    <string name="app_name">Hogomogo</string>
+    <string name="Siemanko">Trala</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_create_advertisement">CreateAdvertisement</string>
+
+    <string name="action_settings">Settings</string>
+
+
+    <!-- Tworzenie ogloszenia -->
+
+    <string name="notatka_Imie">Imie</string>
+    <string name="notatka_Wiek">Wiek</string>
+    <string name="notatka_Gatunek">Gatunek</string>
+    <string name="notatka_Pies">Pies</string>
+    <string name="notatka_Kot">Kot</string>
+    <string name="notatka_Inne">Inne</string>
+
+    <string name="notatka_DlugoscSiersci">Dlugosc siersci</string>
+    <string name="notatka_Dlugie">Dlugie</string>
+    <string name="notatka_Srednie">Srednie</string>
+    <string name="notatka_Krotkie">Krotkie</string>
+    <string name="notatka_Brak">Brak</string>
+
+    <string name="notatka_ZapotrzebowanieNaAktywnosc">Zapotrzebowanie na aktywnosc</string>
+    <string name="notatka_Wysoka">Wysoka</string>
+    <string name="notatka_Srednia">Srednia</string>
+    <string name="notatka_Niska">Niska</string>
+
+
+    <string name="notatka_Ruchliwosc">Ruchliwosc</string>
+
+    <string name="notatka_NastawienieDoCzlowieka">Nastawienie do czlowieka</string>
+    <string name="notatka_Przyjazne">Przyjazne</string>
+    <string name="notatka_Obojetne">Obojetne</string>
+    <string name="notatka_Agresywne">Agresywne</string>
+
+    <string name="notatka_NastawienieDoDzieci">Nastawienie do dzieci</string>
+
+    <string name="notatka_NastawienieDoInnychXwierzat">Nastawienie do innych zwierzat</string>
+
+    <string name="notatka_SklonnosciDoDiszczenia">Sklonnosci do niszczenia</string>
+
+    <string name="notatka_StopienUczulania">Stopien uczulania</string>
+    <string name="notatka_Wysoki">Wysoki</string>
+    <string name="notatka_Sredni">Sredni</string>
+    <string name="notatka_Niski">Niski</string>
+
+    <string name="notatka_MiesiecznyKosztUtrzymania">Miesieczny koszt utrzymania</string>
+
+    <string name="notatka_Kwota">Kwota</string>
+
+    <string name="notatka_PrzebyteLubAktualneChoroby">Przebyte lub aktualne choroby</string>
+    <string name="notatka_Opis">Opis</string>
+    <string name="title_activity_show_advertisement">activity_show_advertisement</string>
+    <string name="title_activity_create_new_advertisement2">CreateNewAdvertisement2</string>
+
+
+    <!-- USER -->
+    <string name="notatka_przedzial_wiek">Przedzial Wiekowy</string>
+    <string name="notatka_OdWiek">Od</string>
+    <string name="notatka_DoWiek">Do</string>
+
+
+</resources>
