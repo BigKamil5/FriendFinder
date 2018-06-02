@@ -88,7 +88,7 @@ public class activity_menu extends AppCompatActivity {
     public void startListOfAnimalShelter(View v)
     {
         //messagebox.show(this.getFragmentManager(), "jej!");
-        Intent intent = new Intent(this, CreateNewAdvertisement.class);
+        Intent intent = new Intent(this, ShelterListActivity.class);
         StartWithAnimation(v, intent);
         //Intent intent = new Intent(this, SearchActivity.class);
         //startActivity(intent);
