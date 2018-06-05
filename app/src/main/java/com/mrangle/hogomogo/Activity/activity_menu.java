@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 
 import com.daimajia.androidanimations.library.Techniques;
@@ -15,6 +16,7 @@ import com.daimajia.androidanimations.library.YoYo;
 import com.mrangle.hogomogo.MyDialogFragment;
 import com.mrangle.hogomogo.R;
 import com.mrangle.hogomogo.UserData;
+import com.mrangle.hogomogo.loginAndRegister.SessionManager;
 
 
 public class activity_menu extends AppCompatActivity {
@@ -23,6 +25,9 @@ public class activity_menu extends AppCompatActivity {
     private View viewProfile;
     private View viewListOfAnimalShelter;
     private View viewObservedAnimals;
+    private Button logOutButton;
+    SessionManager sessionManager;
+
 
 
 
@@ -34,17 +39,28 @@ public class activity_menu extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
         UserData user = new UserData();
 
+        sessionManager = new SessionManager(this);
+        sessionManager.checkLogin();
+
         //messagebox.show(this.getFragmentManager(), String.valueOf(user.kryterium[UserData.gatunek][1]));
         //messagebox.show(this.getFragmentManager(), );
         viewSearch = findViewById(R.id.menuSearch);
         viewProfile = findViewById(R.id.menuProfile);
         viewListOfAnimalShelter = findViewById(R.id.menuListOfAnimalShelter);
         viewObservedAnimals = findViewById(R.id.menuObservedAnimals);
+        logOutButton = findViewById(R.id.logOutBt);
 
         YoYo.with(Techniques.Landing).duration(2000).playOn(viewSearch);
         YoYo.with(Techniques.Landing).duration(2000).playOn(viewProfile);
         YoYo.with(Techniques.Landing).duration(2000).playOn(viewListOfAnimalShelter);
         YoYo.with(Techniques.Landing).duration(2000).playOn(viewObservedAnimals);
+
+        logOutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sessionManager.logout();
+            }
+        });
 
     }
 
