@@ -42,8 +42,15 @@
             android:label="@string/title_activity_create_new_advertisement2"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Activity.CheckBoxActivity.DefineUserCriterion" />
-        <activity android:name=".Activity.SearchActivity2" />
         <activity android:name=".Activity.Search.NewSearchActivity"></activity>
+
+        <activity
+            android:name=".Activity.LoginAndRegister.RegisterActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activity.LoginAndRegister.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
     </application>
 
 </manifest>
