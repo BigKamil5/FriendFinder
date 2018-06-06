@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.Search.NewSearchActivity"
+
+    app:layout_editor_absoluteY="81dp">
+
+
+
+
+
+
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/dsa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            >
+
+            <TextView
+                android:id="@+id/upychacz"
+                android:layout_width="wrap_content"
+                android:layout_height="120dp" />
+
+
+
+
+            <!-- Gatunek -->
+            <TextView
+                android:id="@+id/textGatunek"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginStart="32dp"
+
+
+                android:layout_marginTop="8dp"
+                android:text="@string/notatka_Gatunek"
+                android:textSize="17sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/upychacz" />
+
+
+            <TextView
+                android:id="@+id/petGatunek"
+                android:layout_width="154dp"
+                android:layout_height="35dp"
+
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textGatunek"
+                app:layout_constraintTop_toBottomOf="@+id/upychacz" />
+
+
+            <!-- Dlugosc Siersci -->
+            <TextView
+                android:id="@+id/textDlugoscSiersci"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/notatka_DlugoscSiersci"
+                android:textSize="17sp"
+                android:textStyle="bold|italic"
+
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/petGatunek" />
+
+            <TextView
+                android:id="@+id/petDlugoscSiersci"
+                android:layout_width="154dp"
+                android:layout_height="35dp"
+
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+
+
+                android:layout_marginTop="16dp"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textDlugoscSiersci"
+                app:layout_constraintTop_toBottomOf="@+id/petGatunek" />
+
+
+
+            <!-- Aktywnosc -->
+            <TextView
+                android:id="@+id/textAktywnosc"
+                android:layout_width="150dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/notatka_ZapotrzebowanieNaAktywnosc"
+                android:textSize="17sp"
+                android:textStyle="bold|italic"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/petDlugoscSiersci" />
+
+            <TextView
+                android:id="@+id/petAktywnosc"
+                android:layout_width="154dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="16dp"
+
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+
+                android:layout_marginTop="20dp"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textAktywnosc"
+                app:layout_constraintTop_toBottomOf="@+id/petDlugoscSiersci" />
+
+
+            <!-- Ruchliwosc -->
+            <TextView
+                android:id="@+id/textRuchliwosc"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/notatka_Ruchliwosc"
+                android:textSize="17sp"
+                android:textStyle="bold|italic"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textAktywnosc" />
+
+            <TextView
+                android:id="@+id/petRuchliwosc"
+                android:layout_width="154dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="16dp"
+
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textRuchliwosc"
+                app:layout_constraintTop_toBottomOf="@+id/textAktywnosc" />
+
+
+            <!-- Nastawienie do czlowieka -->
+            <TextView
+                android:id="@+id/textNastawienieDoCzlowieka"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/notatka_NastawienieDoCzlowieka"
+                android:textSize="17sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textRuchliwosc" />
+
+            <TextView
+                android:id="@+id/petNastawienieDoCzlowieka"
+                android:layout_width="154dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textNastawienieDoCzlowieka"
+                app:layout_constraintTop_toBottomOf="@+id/textRuchliwosc" />
+
+
+
+
+            <!-- Nastawienie do dzieci -->
+            <TextView
+                android:id="@+id/textNastawienieDoDzieci"
+                android:layout_width="150dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/notatka_NastawienieDoDzieci"
+                android:textSize="17sp"
+                android:textStyle="bold|italic"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/petNastawienieDoCzlowieka" />
+
+            <TextView
+                android:id="@+id/petNastawienieDoDzieci"
+                android:layout_width="154dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textNastawienieDoDzieci"
+                app:layout_constraintTop_toBottomOf="@+id/petNastawienieDoCzlowieka" />
+
+
+
+            <!-- Nastawienie do innych zwierzat -->
+            <TextView
+                android:id="@+id/textNastawienieDoInnychZwierzat"
+                android:layout_width="150dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/notatka_NastawienieDoInnychXwierzat"
+                android:textSize="17sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/petNastawienieDoDzieci" />
+
+            <TextView
+                android:id="@+id/petNastawienieDoInnychZwierzat"
+                android:layout_width="154dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textNastawienieDoInnychZwierzat"
+                app:layout_constraintTop_toBottomOf="@+id/petNastawienieDoDzieci" />
+
+
+
+            <!-- Skłonności do niszczenia -->
+            <TextView
+                android:id="@+id/textSlonnoscDoNiszczenia"
+                android:layout_width="150dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/notatka_SklonnosciDoDiszczenia"
+                android:textSize="17sp"
+                android:textStyle="bold|italic"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/petNastawienieDoInnychZwierzat" />
+
+            <TextView
+                android:id="@+id/petSlonnoscDoNiszczenia"
+                android:layout_width="154dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textSlonnoscDoNiszczenia"
+                app:layout_constraintTop_toBottomOf="@+id/petNastawienieDoInnychZwierzat" />
+
+
+
+            <!-- Stopien Uczulania -->
+            <TextView
+                android:id="@+id/textStopienUczulania"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/notatka_StopienUczulania"
+                android:textSize="17sp"
+                android:textStyle="bold|italic"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/petSlonnoscDoNiszczenia" />
+
+            <TextView
+                android:id="@+id/petStopienUczulania"
+                android:layout_width="154dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textStopienUczulania"
+                app:layout_constraintTop_toBottomOf="@+id/petSlonnoscDoNiszczenia" />
+
+
+
+            <!-- Miesięczny koszt utrzymania -->
+            <TextView
+                android:id="@+id/textKoszt"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/notatka_MiesiecznyKosztUtrzymania"
+                android:textSize="17sp"
+                android:textStyle="bold|italic"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/petStopienUczulania" />
+
+            <TextView
+                android:id="@+id/petKoszt"
+                android:layout_width="154dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="16dp"
+
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:textSize="17sp"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textKoszt"
+                app:layout_constraintTop_toBottomOf="@+id/petStopienUczulania" />
+
+
+            <!-- Przebyte lub aktualne choroby -->
+            <TextView
+                android:id="@+id/textChoroby"
+                android:layout_width="225dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:textSize="20sp"
+                android:textStyle="bold|italic"
+
+                android:text="@string/notatka_PrzebyteLubAktualneChoroby"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/petKoszt" />
+
+            <TextView
+                android:id="@+id/petChoroby"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textChoroby" />
+
+
+            <!-- Opis -->
+            <TextView
+                android:id="@+id/textOpis"
+                android:layout_width="225dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/notatka_Opis"
+                android:textSize="20sp"
+                android:textStyle="bold|italic"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/petChoroby" />
+
+            <TextView
+                android:id="@+id/petOpis"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textOpis" />
+
+
+            <Button
+                android:id="@+id/buttonGotowe"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginBottom="16dp"
+
+                android:layout_marginEnd="85dp"
+                android:layout_marginRight="85dp"
+                android:layout_marginTop="16dp"
+
+
+                android:background="@mipmap/check_image"
+                android:onClick="clickGotowe"
+
+                android:textStyle="bold"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/petOpis" />
+
+            <Button
+                android:id="@+id/buttonWroc"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginBottom="16dp"
+
+
+                android:layout_marginEnd="62dp"
+
+                android:layout_marginLeft="85dp"
+                android:layout_marginRight="62dp"
+                android:layout_marginStart="85dp"
+                android:layout_marginTop="16dp"
+                android:background="@mipmap/cancel_image"
+                android:onClick="backToMenu"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/buttonGotowe"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/petOpis"
+                app:layout_constraintVertical_bias="0.0" />
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/imageLayout"
+        android:background="@color/colorPrimaryDark"
+        android:onClick="swapViews"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:src="@drawable/indeks"
+            app:civ_border_color="#000000"
+            app:civ_border_width="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/mainInformation"
+        android:layout_width="240dp"
+        android:layout_height="60dp"
+        android:background="@color/colorPrimaryDark"
+        android:onClick="swapViews"
+        app:layout_constraintStart_toStartOf="@id/imageLayout"
+        app:layout_constraintTop_toTopOf="@id/imageLayout">
+
+        <!-- imie-->
+
+        <TextView
+            android:id="@+id/textImie"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+
+
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Imie :"
+            android:textSize="17sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/petImie"
+            android:layout_width="120dp"
+            android:layout_height="35dp"
+
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+
+            android:hint="@string/notatka_Imie"
+            app:layout_constraintStart_toEndOf="@+id/textImie"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- wiek-->
+
+        <TextView
+            android:id="@+id/textWiek"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+
+
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="18dp"
+            android:text="Wiek : "
+            android:textSize="17sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textImie" />
+
+        <TextView
+            android:id="@+id/petWiek"
+            android:layout_width="120dp"
+            android:layout_height="35dp"
+
+
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="18dp"
+            android:ems="10"
+            android:hint="@string/notatka_Wiek"
+            app:layout_constraintStart_toEndOf="@+id/textWiek"
+            app:layout_constraintTop_toBottomOf="@+id/petImie"
+            tools:ignore="LabelFor" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</android.support.constraint.ConstraintLayout>

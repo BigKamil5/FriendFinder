@@ -22,26 +22,28 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activity.MojActivity"
+            android:name=".Activity.StareDoNaukiAlboSprawdzania.MojActivity"
             android:parentActivityName=".Activity.MainActivity" />
-        <activity android:name=".Activity.activity_menu" />
+        <activity android:name=".Activity.MenuActivity" />
         <activity
-            android:name=".Activity.LoginActivity"
+            android:name=".Activity.LoginActivityOld"
             android:label="@string/title_activity_login" />
-        <activity android:name=".Activity.SearchActivity" />
+        <activity android:name=".Activity.StareDoNaukiAlboSprawdzania.SearchActivity" />
         <activity
-            android:name=".Activity.AbLayout"
+            android:name=".Activity.CheckBoxActivity.AbLayout"
             android:label="@string/title_activity_create_advertisement"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Activity.activity_show_advertisement"
+            android:name=".Activity.StareDoNaukiAlboSprawdzania.ShowAdvertisementOld"
             android:label="@string/title_activity_show_advertisement"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Activity.CreateNewAdvertisement"
+            android:name=".Activity.CheckBoxActivity.CreateNewAdvertisement"
             android:label="@string/title_activity_create_new_advertisement2"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Activity.DefineUserCriterion"></activity>
+        <activity android:name=".Activity.CheckBoxActivity.DefineUserCriterion" />
+        <activity android:name=".Activity.SearchActivity2" />
+        <activity android:name=".Activity.Search.NewSearchActivity"></activity>
     </application>
 
 </manifest>

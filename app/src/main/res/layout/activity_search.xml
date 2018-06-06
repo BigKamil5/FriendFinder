@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
     android:id="@+id/lay"
-    tools:context=".Activity.SearchActivity">
+    tools:context=".Activity.StareDoNaukiAlboSprawdzania.SearchActivity">
 
 
     <ImageView

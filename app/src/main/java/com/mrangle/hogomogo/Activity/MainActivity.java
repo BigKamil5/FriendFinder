@@ -18,9 +18,9 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        Intent intent = new Intent(this, LoginActivity.class);
+        /*Intent intent = new Intent(this, com.mrangle.hogomogo.Activity.LoginAndRegister.HomeActivity.class);
         startActivity(intent);
-        finish();
+        finish();*/
     }
 
 }

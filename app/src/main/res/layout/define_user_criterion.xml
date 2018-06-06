@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.CheckBoxActivity.DefineUserCriterion">
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/HeadLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:id="@+id/layObraz"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:orientation="vertical"
+            android:background="@color/colorPrimaryDark">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/imageView"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@mipmap/unknown_account"
+
+                android:layout_gravity="center_horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+        </LinearLayout>
+
+        <!-- text Wiek-->
+        <TextView
+            android:id="@+id/TextWiek"
+            android:layout_width="200dp"
+            android:layout_height="44dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="@string/notatka_przedzial_wiek"
+            android:textSize="17sp"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layObraz"
+            />
+
+        <!--od wiek-->
+        <EditText
+            android:id="@+id/editOdWiek"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:maxLength="3"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="@string/notatka_Od"
+            android:inputType="number"
+
+
+            app:layout_constraintStart_toEndOf="@+id/TextWiek"
+            app:layout_constraintTop_toBottomOf="@+id/layObraz"/>
+
+
+        <!--do wiek-->
+        <EditText
+            android:id="@+id/editDoWiek"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:maxLength="3"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="@string/notatka_Do"
+            android:inputType="number"
+
+            app:layout_constraintStart_toEndOf="@+id/editOdWiek"
+            app:layout_constraintTop_toBottomOf="@+id/layObraz"/>
+
+        <TextView
+            android:id="@+id/textKoszt"
+
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:text="@string/notatka_MiesiecznyKosztUtrzymania"
+            android:textSize="17sp"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TextWiek" />
+
+        <!-- app:layout_constraintTop_toBottomOf="@+id/checkUczNiski" -->
+        <EditText
+            android:id="@+id/editOdKoszt"
+            android:layout_width="72dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="8dp"
+            android:maxLength="6"
+
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="@string/notatka_Od"
+            android:inputType="number"
+            app:layout_constraintStart_toEndOf="@+id/textKoszt"
+            app:layout_constraintTop_toBottomOf="@+id/editOdWiek" />
+
+
+
+        <EditText
+            android:id="@+id/editDoKoszt"
+            android:layout_width="72dp"
+            android:layout_height="50dp"
+
+            android:maxLength="6"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="@string/notatka_Do"
+            android:inputType="number"
+            app:layout_constraintStart_toEndOf="@+id/editOdKoszt"
+            app:layout_constraintTop_toBottomOf="@+id/editOdWiek" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+
+
+
+</android.support.constraint.ConstraintLayout>
