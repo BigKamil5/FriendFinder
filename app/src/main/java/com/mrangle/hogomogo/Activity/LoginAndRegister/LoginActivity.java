@@ -1,5 +1,6 @@
 package com.mrangle.hogomogo.Activity.LoginAndRegister;
 
+import com.mrangle.hogomogo.Class.Globals;
 import com.mrangle.hogomogo.R;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -32,7 +33,10 @@ public class LoginActivity extends AppCompatActivity {
     private Button btn_login;
     private TextView link_regist;
     private ProgressBar loading;
-    private static String URL_LOGIN = "http://192.168.1.141/myProjects/android_register_login/login.php";
+
+    //String s = ((Globals) this.getApplication()).getYourIp();
+
+    //private String URL_LOGIN = "http://"+s+"/myProjects/android_register_login/login.php";
     SessionManager sessionManager;
 
     @Override
@@ -77,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
         loading.setVisibility(View.VISIBLE);
         btn_login.setVisibility(View.GONE);
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_LOGIN,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Globals.URL_LOGIN,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -98,7 +102,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                     sessionManager.createSession(name, email, id);
 
-                                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                                    Intent intent = new Intent(LoginActivity.this, com.mrangle.hogomogo.Activity.LoginAndRegister.HomeActivity.class);
                                     intent.putExtra("name", name);
                                     intent.putExtra("email", email);
                                     startActivity(intent);

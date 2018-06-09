@@ -6,11 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.mrangle.hogomogo.Activity.CheckBoxActivity.CreateNewAdvertisement;
 import com.mrangle.hogomogo.Activity.CheckBoxActivity.DefineUserCriterion;
+import com.mrangle.hogomogo.Activity.LoginAndRegister.LoginActivity;
+import com.mrangle.hogomogo.Activity.LoginAndRegister.RegisterActivity;
+import com.mrangle.hogomogo.Activity.LoginAndRegister.SessionManager;
 import com.mrangle.hogomogo.Activity.Search.NewSearchActivity;
 import com.mrangle.hogomogo.Activity.StareDoNaukiAlboSprawdzania.SearchActivity;
 import com.mrangle.hogomogo.Class.ExtensionClass.MyDialogFragment;
@@ -24,6 +28,8 @@ public class MenuActivity extends AppCompatActivity {
     private View viewProfile;
     private View viewListOfAnimalShelter;
     private View viewObservedAnimals;
+    private Button logoutButton;
+    private SessionManager sessionManager;
 
 
 
@@ -41,11 +47,21 @@ public class MenuActivity extends AppCompatActivity {
         viewProfile = findViewById(R.id.menuProfile);
         viewListOfAnimalShelter = findViewById(R.id.menuListOfAnimalShelter);
         viewObservedAnimals = findViewById(R.id.menuObservedAnimals);
+        logoutButton = findViewById(R.id.logOutBt);
+
+        sessionManager = new SessionManager(this);
 
         YoYo.with(Techniques.Landing).duration(2000).playOn(viewSearch);
         YoYo.with(Techniques.Landing).duration(2000).playOn(viewProfile);
         YoYo.with(Techniques.Landing).duration(2000).playOn(viewListOfAnimalShelter);
         YoYo.with(Techniques.Landing).duration(2000).playOn(viewObservedAnimals);
+
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sessionManager.logout();
+            }
+        });
 
     }
 

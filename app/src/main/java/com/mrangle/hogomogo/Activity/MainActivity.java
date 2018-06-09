@@ -21,9 +21,21 @@ public class MainActivity extends AppCompatActivity {
 
         sessionManager = new SessionManager(this);
         sessionManager.checkLogin();
-        /*Intent intent = new Intent(this, com.mrangle.hogomogo.Activity.LoginAndRegister.HomeActivity.class);
+
+
+        Intent intent = new Intent(this, com.mrangle.hogomogo.Activity.MenuActivity.class);
         startActivity(intent);
-        finish();*/
+        finish();
     }
 
-}
+    protected void onResume() {
+        super.onResume();
+
+
+        sessionManager = new SessionManager(this);
+        sessionManager.checkLogin();
+
+    }
+
+
+    }

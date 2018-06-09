@@ -1,5 +1,6 @@
 package com.mrangle.hogomogo.Activity.LoginAndRegister;
 
+import com.mrangle.hogomogo.Class.Globals;
 import com.mrangle.hogomogo.R;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,7 +30,6 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText name, email, password, c_password;
     private Button btn_regist;
     private ProgressBar loading;
-    private static String URL_REGIST = "http://192.168.1.141/myProjects/android_register_login/register.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +60,7 @@ public class RegisterActivity extends AppCompatActivity {
         final String email = this.email.getText().toString().trim();
         final String password = this.password.getText().toString().trim();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_REGIST,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Globals.URL_REGIST,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

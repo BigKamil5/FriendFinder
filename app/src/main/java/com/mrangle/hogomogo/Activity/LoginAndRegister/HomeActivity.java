@@ -1,5 +1,6 @@
 package com.mrangle.hogomogo.Activity.LoginAndRegister;
 
+import com.mrangle.hogomogo.Class.Globals;
 import com.mrangle.hogomogo.R;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -46,9 +47,6 @@ public class HomeActivity extends AppCompatActivity {
     private Button btn_logout, btn_photo_upload;
     SessionManager sessionManager;
     String getId;
-    private static String URL_READ = "http://192.168.1.141/myProjects/android_register_login/read_detail.php";
-    private static String URL_EDIT = "http://192.168.1.141/myProjects/android_register_login/edit_detail.php";
-    private static String URL_UPLOAD = "http://192.168.1.141/myProjects/android_register_login/upload.php";
     private Menu action;
     private Bitmap bitmap;
     CircleImageView profile_image;
@@ -93,7 +91,7 @@ public class HomeActivity extends AppCompatActivity {
         progressDialog.setMessage("Loading...");
         progressDialog.show();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_READ,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Globals.URL_READ,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -216,7 +214,7 @@ public class HomeActivity extends AppCompatActivity {
         progressDialog.setMessage("Saving...");
         progressDialog.show();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_EDIT,
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, Globals.URL_EDIT,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -294,7 +292,7 @@ public class HomeActivity extends AppCompatActivity {
         progressDialog.setMessage("Uploading...");
         progressDialog.show();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_UPLOAD,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Globals.URL_UPLOAD,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
