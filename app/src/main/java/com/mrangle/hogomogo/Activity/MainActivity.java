@@ -17,13 +17,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
+        //setContentView(R.layout.activity_main);
 
-        sessionManager = new SessionManager(this);
-        sessionManager.checkLogin();
+        //sessionManager = new SessionManager(this);
+        //sessionManager.checkLogin(); // to juz uruchamia nowe Activity
 
 
-        Intent intent = new Intent(this, com.mrangle.hogomogo.Activity.MenuActivity.class);
+        Intent intent = new Intent(this, com.mrangle.hogomogo.Activity.LoginAndRegister.LoginActivity.class);
         startActivity(intent);
         finish();
     }

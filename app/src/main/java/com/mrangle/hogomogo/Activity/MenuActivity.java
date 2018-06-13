@@ -60,6 +60,7 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 sessionManager.logout();
+                finish();
             }
         });
 

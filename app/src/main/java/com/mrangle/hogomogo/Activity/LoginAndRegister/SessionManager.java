@@ -66,6 +66,8 @@ public class SessionManager {
         Intent i = new Intent(context, LoginActivity.class);
         context.startActivity(i);
 
+
+
     }
 
 }
