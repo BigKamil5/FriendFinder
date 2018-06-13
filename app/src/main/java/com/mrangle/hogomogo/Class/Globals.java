@@ -15,10 +15,10 @@ import android.app.Application;
 public class Globals extends Application {
 
     //Kamil
-    public static String yourIpAdress ="192.168.0.32";
+    //public static String yourIpAdress ="192.168.0.32";
 
     //Pietrek
-    //public static String yourIpAdress ="192.168.1.141";
+    public static String yourIpAdress ="192.168.1.141";
 
     public static String URL_LOGIN = "http://"+yourIpAdress+"/myProjects/android_register_login/login.php";
     public static String URL_REGIST = "http://"+yourIpAdress+"/myProjects/android_register_login/register.php";
