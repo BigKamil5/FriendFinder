@@ -102,7 +102,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                     sessionManager.createSession(name, email, id);
 
-                                    Intent intent = new Intent(LoginActivity.this, com.mrangle.hogomogo.Activity.LoginAndRegister.HomeActivity.class);
+                                    Intent intent = new Intent(LoginActivity.this, com.mrangle.hogomogo.Activity.MenuActivity.class);
                                     intent.putExtra("name", name);
                                     intent.putExtra("email", email);
                                     startActivity(intent);
