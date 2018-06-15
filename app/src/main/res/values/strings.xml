@@ -71,8 +71,8 @@
 
     <!-- USER -->
     <string name="notatka_przedzial_wiek">Przedzial Wiekowy</string>
-    <string name="notatka_OdWiek">Od</string>
-    <string name="notatka_DoWiek">Do</string>
+    <string name="notatka_Od">Od</string>
+    <string name="notatka_Do">Do</string>
 
 
 </resources>
