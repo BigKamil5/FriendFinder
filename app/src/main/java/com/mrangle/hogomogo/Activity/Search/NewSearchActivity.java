@@ -48,9 +48,9 @@ public class NewSearchActivity extends AppCompatActivity {
     private ConstraintSet   constraintSetNew = new ConstraintSet();
     private boolean altLayout;
 
-    private static final int REQUEST_EXIT = 2;
+    protected static final int REQUEST_EXIT = 2;
 
-    private Pet pet;
+    protected Pet pet;
     private DialogFragment messagebox = new MyDialogFragment();
 
     /* PRZECHOWUJE WARTOSCI CECH */
@@ -65,9 +65,9 @@ public class NewSearchActivity extends AppCompatActivity {
 
     ImageView imageView;
 
-    Button btnAccept;
+    protected Button btnAccept;
 
-    private ProgressBar loading;
+    protected ProgressBar loading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +75,7 @@ public class NewSearchActivity extends AppCompatActivity {
         setContentView(R.layout.search_advertisement_new);
 
         btnAccept = findViewById(R.id.buttonGotowe);
-        btnAccept.setOnClickListener(this::clickGotowe);
+        //btnAccept.setOnClickListener(this::clickGotowe);
         
         layout = findViewById(R.id.layout);
         loading = findViewById(R.id.loading);
@@ -147,7 +147,7 @@ public class NewSearchActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
+    /*
     public void SendToServer()
     {
         //TODO wysyłanie do serwera i tworzenie selekcikow
@@ -204,7 +204,7 @@ public class NewSearchActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
 
-    }
+    } */
 
 
 
@@ -229,12 +229,12 @@ public class NewSearchActivity extends AppCompatActivity {
         }
     }
 
-    public void clickGotowe(View v)
+    /*public void clickGotowe(View v)
     {
         SendToServer();                         // wysylanie do bazy danych
         setResult(REQUEST_EXIT, null);
         finish();
-    }
+    }*/
 
     public void backToMenu(View v)
     {

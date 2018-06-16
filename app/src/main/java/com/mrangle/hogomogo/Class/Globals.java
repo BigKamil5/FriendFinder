@@ -26,6 +26,7 @@ public class Globals extends Application {
     public static String URL_EDIT = "http://"+yourIpAdress+"/myProjects/android_register_login/edit_detail.php";
     public static String URL_UPLOAD = "http://"+yourIpAdress+"/myProjects/android_register_login/upload.php";
     public static String URL_ADD_PET = "http://"+yourIpAdress+"/myProjects/android_register_login/add_pet.php";
+    public static String URL_SEND_USER_CRITERION = "http://"+yourIpAdress+"/myProjects/android_register_login/send_user_criterion.php";
 
 
 

@@ -18,6 +18,7 @@ import com.mrangle.hogomogo.Activity.LoginAndRegister.SessionManager;
 import com.mrangle.hogomogo.Activity.Search.NewSearchActivity;
 import com.mrangle.hogomogo.Activity.StareDoNaukiAlboSprawdzania.SearchActivity;
 import com.mrangle.hogomogo.Class.ExtensionClass.MyDialogFragment;
+import com.mrangle.hogomogo.Class.Pet;
 import com.mrangle.hogomogo.R;
 import com.mrangle.hogomogo.Class.UserData;
 
@@ -42,7 +43,7 @@ public class MenuActivity extends AppCompatActivity {
         UserData user = new UserData();
 
         //messagebox.show(this.getFragmentManager(), String.valueOf(user.kryterium[UserData.gatunek][1]));
-        //messagebox.show(this.getFragmentManager(), );
+        messagebox.show(this.getFragmentManager(), UserData.getCriterionInString(Pet.GATUNEK));
         viewSearch = findViewById(R.id.menuSearch);
         viewProfile = findViewById(R.id.menuProfile);
         viewListOfAnimalShelter = findViewById(R.id.menuListOfAnimalShelter);

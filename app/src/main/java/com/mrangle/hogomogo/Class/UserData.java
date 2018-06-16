@@ -22,6 +22,15 @@ public class UserData {
             {false, false, false, false, false},    //STOPIEN_UCZULANIA
     };
 
+    public static String getCriterionInString( int type )
+    {
+        StringBuilder str = new StringBuilder();
+        for(int i = 0; i < kryterium[type].length; i++)
+            str.append(kryterium[type][i]? 1 : 0);
+
+        return str.toString();
+    }
+
 
 
 }

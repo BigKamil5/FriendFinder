@@ -8,11 +8,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.mrangle.hogomogo.Class.ExtensionClass.InputFilterMinMax;
+import com.mrangle.hogomogo.Class.Globals;
 import com.mrangle.hogomogo.Class.Pet;
 import com.mrangle.hogomogo.R;
 import com.mrangle.hogomogo.Class.UserData;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class DefineUserCriterion extends AbLayout {
 
@@ -22,6 +36,8 @@ public class DefineUserCriterion extends AbLayout {
     EditText ed_DoWiek ;
     EditText ed_OdKoszt;
     EditText ed_DoKoszt;
+    
+    protected ProgressBar loading;
     //UserData newUserData;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +54,8 @@ public class DefineUserCriterion extends AbLayout {
                 checkBoxes[cecha][atrybut - CHECKBOX_DIFFERENCE].setOnClickListener(new MyOnClickListener(cecha, atrybut));
 
         ConstraintLayout headLayout = textEntryView.findViewById(R.id.HeadLayout);
+        
+        loading             = textEntryView.findViewById(R.id.loading);
 
         upOfLayout          = findViewById(R.id.AbTopLayout);
         downOfLayout        = findViewById(R.id.AbBottomLayout);
@@ -79,6 +97,7 @@ public class DefineUserCriterion extends AbLayout {
         safe();
 
         //TODO Wysylanie danych do serwera
+        SendToServer();
 
         finish();
     }
@@ -142,6 +161,66 @@ public class DefineUserCriterion extends AbLayout {
             ed_DoKoszt.setText(String.valueOf(UserData.koszt[UserData.MAX]));
         }
         catch(Exception ignored){ }
+
+    }
+
+    public void SendToServer()
+    {
+        //TODO wysyłanie do serwera i tworzenie selekcikow
+        loading.setVisibility(View.VISIBLE);
+        buttonGotowe.setVisibility(View.GONE);
+
+
+
+        final String ID = UserData.getCriterionInString(Pet.GATUNEK).trim();
+        final String Type = UserData.getCriterionInString(Pet.GATUNEK).trim();
+        final String LengthOfHair = UserData.getCriterionInString(Pet.DLUGOSCSIERSCI).trim();
+        final String TheNeedForActivity = UserData.getCriterionInString(Pet.ZAPOTRZEBOWANIE_NA_AKTYWNOSC).trim();
+        final String Ruchliwosc = UserData.getCriterionInString(Pet.RUCHLIWOSC).trim();
+
+        Toast.makeText(DefineUserCriterion.this, (ID + Type + LengthOfHair + TheNeedForActivity), Toast.LENGTH_LONG).show();
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Globals.URL_SEND_USER_CRITERION,
+                response -> {
+                    try{
+                        JSONObject jsonObject = new JSONObject(response);
+                        String success = jsonObject.getString("success");
+
+                        if (success.equals("1")) {
+                            Toast.makeText(DefineUserCriterion.this, "Pet has beed added - Success!", Toast.LENGTH_LONG).show();
+                            loading.setVisibility(View.GONE);
+                            buttonGotowe.setVisibility(View.VISIBLE);
+                        }
+
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        Toast.makeText(DefineUserCriterion.this, "Error! " + e.toString(), Toast.LENGTH_SHORT).show();
+                        loading.setVisibility(View.GONE);
+                        buttonGotowe.setVisibility(View.VISIBLE);
+                    }
+                },
+                error -> {
+                    Toast.makeText(DefineUserCriterion.this, "Error! " + error.toString(), Toast.LENGTH_SHORT).show();
+                    loading.setVisibility(View.GONE);
+                    buttonGotowe.setVisibility(View.VISIBLE);
+                })
+
+        {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("ID", ID);
+                params.put("Type", Type);
+                params.put("LengthOfHair", LengthOfHair);
+                params.put("TheNeedForActivity",TheNeedForActivity);
+                params.put("Ruchliwosc", Ruchliwosc);
+                return params;
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
 
     }
 

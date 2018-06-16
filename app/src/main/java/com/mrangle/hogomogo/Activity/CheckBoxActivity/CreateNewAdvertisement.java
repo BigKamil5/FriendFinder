@@ -161,7 +161,7 @@ public class CreateNewAdvertisement extends AbLayout {
             if(!ed_wiek.getText().toString().matches(""))       newPet.setWiek(Integer.parseInt(ed_wiek.getText().toString()));
             if(!ed_koszt.getText().toString().matches(""))      newPet.setMiesiecznyKosztUtrzymania(Integer.parseInt(ed_koszt.getText().toString()));
 
-            Intent intent = new Intent(this, NewSearchActivity.class).putExtra("Pet", newPet);
+            Intent intent = new Intent(this, SendDataAboutNewPet.class).putExtra("Pet", newPet);
             startActivityForResult(intent,REQUEST_EXIT);
             //startActivity(intent);
 
