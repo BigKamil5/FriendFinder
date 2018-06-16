@@ -13,15 +13,12 @@ import android.widget.Toast;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -61,9 +58,7 @@ public class RegisterActivity extends AppCompatActivity {
         final String password = this.password.getText().toString().trim();
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Globals.URL_REGIST,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
+                response -> {
                     try{
                         JSONObject jsonObject = new JSONObject(response);
                         String success = jsonObject.getString("success");
@@ -81,15 +76,11 @@ public class RegisterActivity extends AppCompatActivity {
                         loading.setVisibility(View.GONE);
                         btn_regist.setVisibility(View.VISIBLE);
                     }
-                    }
                 },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(RegisterActivity.this, "Register Error! " + error.toString(), Toast.LENGTH_SHORT).show();
-                        loading.setVisibility(View.GONE);
-                        btn_regist.setVisibility(View.VISIBLE);
-                    }
+                error -> {
+                    Toast.makeText(RegisterActivity.this, "Register Error! " + error.toString(), Toast.LENGTH_SHORT).show();
+                    loading.setVisibility(View.GONE);
+                    btn_regist.setVisibility(View.VISIBLE);
                 })
 
         {
@@ -110,3 +101,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
 }
+
+/*
+
+ */

@@ -16,16 +16,30 @@ import android.transition.Transition;
 import android.transition.TransitionManager;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.mrangle.hogomogo.Class.ExtensionClass.MyDialogFragment;
+import com.mrangle.hogomogo.Class.Globals;
 import com.mrangle.hogomogo.Class.Pet;
 import com.mrangle.hogomogo.Class.PhotoEditor;
 import com.mrangle.hogomogo.R;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class NewSearchActivity extends AppCompatActivity {
 
@@ -51,12 +65,20 @@ public class NewSearchActivity extends AppCompatActivity {
 
     ImageView imageView;
 
+    Button btnAccept;
+
+    private ProgressBar loading;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_advertisement_new);
 
+        btnAccept = findViewById(R.id.buttonGotowe);
+        btnAccept.setOnClickListener(this::clickGotowe);
+        
         layout = findViewById(R.id.layout);
+        loading = findViewById(R.id.loading);
         constraintSetOld.clone(layout);
         constraintSetNew.clone(this,R.layout.search_adverisement_new_alt);
 
@@ -129,6 +151,59 @@ public class NewSearchActivity extends AppCompatActivity {
     public void SendToServer()
     {
         //TODO wysyłanie do serwera i tworzenie selekcikow
+        loading.setVisibility(View.VISIBLE);
+        btnAccept.setVisibility(View.GONE);
+
+        final String ID = Integer.toString(this.pet.getId()).trim();
+        final String Type = Integer.toString(this.pet.id_atrybuty[Pet.GATUNEK]).trim();
+        final String LengthOfHair = Integer.toString(this.pet.id_atrybuty[Pet.DLUGOSCSIERSCI]).trim();
+        final String TheNeedForActivity = Integer.toString(this.pet.id_atrybuty[Pet.ZAPOTRZEBOWANIE_NA_AKTYWNOSC]).trim();
+        final String Ruchliwosc = Integer.toString(this.pet.id_atrybuty[Pet.RUCHLIWOSC]).trim();
+
+        Toast.makeText(NewSearchActivity.this, (ID + Type + LengthOfHair + TheNeedForActivity), Toast.LENGTH_LONG).show();
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Globals.URL_ADD_PET,
+                response -> {
+                    try{
+                        JSONObject jsonObject = new JSONObject(response);
+                        String success = jsonObject.getString("success");
+
+                        if (success.equals("1")) {
+                            Toast.makeText(NewSearchActivity.this, "Pet has beed added - Success!", Toast.LENGTH_LONG).show();
+                            loading.setVisibility(View.GONE);
+                            btnAccept.setVisibility(View.VISIBLE);
+                        }
+
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        Toast.makeText(NewSearchActivity.this, "Error! " + e.toString(), Toast.LENGTH_SHORT).show();
+                        loading.setVisibility(View.GONE);
+                        btnAccept.setVisibility(View.VISIBLE);
+                    }
+                },
+                error -> {
+                    Toast.makeText(NewSearchActivity.this, "Error! " + error.toString(), Toast.LENGTH_SHORT).show();
+                    loading.setVisibility(View.GONE);
+                    btnAccept.setVisibility(View.VISIBLE);
+                })
+
+        {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("ID", ID);
+                params.put("Type", Type);
+                params.put("LengthOfHair", LengthOfHair);
+                params.put("TheNeedForActivity",TheNeedForActivity);
+                params.put("Ruchliwosc", Ruchliwosc);
+                return params;
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+
     }
 
 
