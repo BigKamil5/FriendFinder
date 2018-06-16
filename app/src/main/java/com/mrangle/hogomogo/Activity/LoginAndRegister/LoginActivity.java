@@ -82,45 +82,42 @@ public class LoginActivity extends AppCompatActivity {
         btn_login.setVisibility(View.GONE);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Globals.URL_LOGIN,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            String success = jsonObject.getString("success");
-                            JSONArray jsonArray = jsonObject.getJSONArray("login");
+                response -> {
+                    try {
+                        JSONObject jsonObject = new JSONObject(response);
+                        String success = jsonObject.getString("success");
+                        JSONArray jsonArray = jsonObject.getJSONArray("login");
 
-                            if (success.equals("1")) {
+                        if (success.equals("1")) {
 
-                                for (int i = 0; i < jsonArray.length(); i++) {
+                            for (int i = 0; i < jsonArray.length(); i++) {
 
-                                    JSONObject object = jsonArray.getJSONObject(i);
+                                JSONObject object = jsonArray.getJSONObject(i);
 
-                                    String name = object.getString("name").trim();
-                                    String email = object.getString("email").trim();
-                                    String id = object.getString("id").trim();
+                                String name = object.getString("name").trim();
+                                String email1 = object.getString("email").trim();
+                                String id = object.getString("id").trim();
 
-                                    sessionManager.createSession(name, email, id);
+                                sessionManager.createSession(name, email1, id);
 
-                                    Intent intent = new Intent(LoginActivity.this, com.mrangle.hogomogo.Activity.MenuActivity.class);
-                                    intent.putExtra("name", name);
-                                    intent.putExtra("email", email);
-                                    startActivity(intent);
-                                    finish();
+                                Intent intent = new Intent(LoginActivity.this, com.mrangle.hogomogo.Activity.MenuActivity.class);
+                                intent.putExtra("name", name);
+                                intent.putExtra("email", email1);
+                                startActivity(intent);
+                                finish();
 
-                                    loading.setVisibility(View.GONE);
+                                loading.setVisibility(View.GONE);
 
-
-                                }
 
                             }
 
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                            loading.setVisibility(View.GONE);
-                            btn_login.setVisibility(View.VISIBLE);
-                            Toast.makeText(LoginActivity.this, "Error " +e.toString(), Toast.LENGTH_SHORT).show();
                         }
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        loading.setVisibility(View.GONE);
+                        btn_login.setVisibility(View.VISIBLE);
+                        Toast.makeText(LoginActivity.this, "Error " +e.toString(), Toast.LENGTH_SHORT).show();
                     }
                 },
                 new Response.ErrorListener() {

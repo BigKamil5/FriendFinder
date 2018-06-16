@@ -34,11 +34,16 @@ public class SendDataAboutNewPet extends NewSearchActivity {
 
 
 
-        final String ID = Integer.toString(this.pet.getId()).trim();
-        final String Type = Integer.toString(this.pet.id_atrybuty[Pet.GATUNEK]).trim();
-        final String LengthOfHair = Integer.toString(this.pet.id_atrybuty[Pet.DLUGOSCSIERSCI]).trim();
+        final String ID                 = Integer.toString(this.pet.getId()).trim();
+        final String Name               = this.pet.getImie().trim();
+        final String Age                = Integer.toString(this.pet.getWiek());
+
+        final String Type               = Integer.toString(this.pet.id_atrybuty[Pet.GATUNEK]).trim();
+        final String LengthOfHair       = Integer.toString(this.pet.id_atrybuty[Pet.DLUGOSCSIERSCI]).trim();
         final String TheNeedForActivity = Integer.toString(this.pet.id_atrybuty[Pet.ZAPOTRZEBOWANIE_NA_AKTYWNOSC]).trim();
-        final String Ruchliwosc = Integer.toString(this.pet.id_atrybuty[Pet.RUCHLIWOSC]).trim();
+        final String Ruchliwosc         = Integer.toString(this.pet.id_atrybuty[Pet.RUCHLIWOSC]).trim();
+
+        final String UriImage = this.pet.stringUriImage.trim();
 
         Toast.makeText(SendDataAboutNewPet.this, (ID + Type + LengthOfHair + TheNeedForActivity), Toast.LENGTH_LONG).show();
 
@@ -73,10 +78,13 @@ public class SendDataAboutNewPet extends NewSearchActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 params.put("ID", ID);
+                params.put("Name", Name);
+                params.put("Age", Age);
                 params.put("Type", Type);
                 params.put("LengthOfHair", LengthOfHair);
                 params.put("TheNeedForActivity",TheNeedForActivity);
                 params.put("Ruchliwosc", Ruchliwosc);
+                params.put("UriImage", UriImage);
                 return params;
             }
         };
