@@ -41,7 +41,7 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     implementation 'com.android.support:design:27.1.1'
     implementation group: 'com.squareup.picasso', name: 'picasso', version: '2.5.0'
-
+    implementation 'io.reactivex.rxjava2:rxjava:2.0.2'
     implementation 'de.hdodenhof:circleimageview:2.2.0'
 
     implementation 'com.daimajia.easing:library:2.0@aar'

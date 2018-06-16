@@ -1,8 +1,9 @@
 package com.mrangle.hogomogo.Functionalities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ShelterListData {
+public class ShelterListData implements Serializable {
     private String mName;
 
     public ShelterListData(String name) {

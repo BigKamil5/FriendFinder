@@ -56,7 +56,10 @@
         <activity
             android:name=".Activity.LoginAndRegister.HomeActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
+        <activity android:name=".Activity.ShelterListActivity"
+                    android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Activity.ShelterDetails"
+                    android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
