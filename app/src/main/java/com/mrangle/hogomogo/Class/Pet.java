@@ -35,6 +35,57 @@ public class Pet implements Serializable
     public final static int AGRESYWNE = 3;
 
 
+    //powiedzmy ze zwierze ma wartosc przy dlugosci siersci ustawione na 2
+    //niech zwierze nazywa sie : newPet
+    /*
+    zamist sprawdzac czy user zgadza sie na dlugosc siersci średnie ( średnie czyli = 2)
+    for(int i = 0; i < lenght; i++)
+        if (kryterium[dlugoscSiersci][i] == true)
+            wynik++;
+
+    wystarczy zrobić po prostu
+        if (kryterium[dlugoscSiersci][newPet.dlugoscSiersci] == true)
+            wynik++;
+
+        // bo newPet.gatunek = 2, a to 2 odpowiada prawdzie/falszowi (w zwiazku z srednia dlugoscia siersci) z kryterium uzytkownika.
+     */
+
+    /*
+
+    Algorytm działania :
+    zakladajac ze mamy dwuwymiarowa tablice kryterium...
+
+    i zwierza (jako newPet) też mamy w tablicy jednowymiarowej
+     id_atrybuty = {
+            0, // Gatunek            // tutaj jakies wartosci
+            0, // Dlugosc siersci
+            0, // ZAPOTRZEBOWANIE_NA_AKTYWNOSC
+            0, // RUCHLIWOSC
+            0, // NASTAWIENIE_DO_CZLOWIEKA
+            0, // NASTAWIENIE_DO_DZIECI
+            0, // NASTAWIENIE_DO_INNYCH_ZWIERZAT
+            0, // SKLONNOSC_DO_NISZCZENIA
+            0, // STOPIEN_UCZULANIA
+    };
+    to najszybicej mozna sprawdzic poprawnosc:
+
+    for(int i = 0; i < id_atrybuty.lenght; i++)
+        // jesli i = 0, to dla zwierza i dla kryterium bedzie sprawdzany garunek i od razu
+        // przejdzie do sprawdzania czy wartosc lezaca pod indeksem = newPet.id_atrybuty[i] == true
+        // zamiast przechodzac po kolei przez wszystkie indeksy
+        if( kryterium[i][newPet.id_atrybuty[i]] == true )
+            wynik++;
+
+    // nic wiecej dla jednego zwierza
+
+    // jesli to będa 2 tablice ( w tym jedna jednowymiarowa(zwierza), druga dwuwymiarowa(uzytkownika),
+    to powinno działać ( na takiej samej zasadzie dziala przy okreslaniu checkboxow itd... wiec mam pewnosc ze to jest ok)
+
+
+     */
+
+
+
     // używane jako zbiorCech[cecha][atrybut] - zwraca String określajacy dana ceche //
     /*
     Przyklad: .zbiorCech[DLUGOSC_SIERSCI][SREDNIE] zwraca String "SREDNIE"

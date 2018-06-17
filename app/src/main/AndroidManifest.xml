@@ -49,6 +49,8 @@
 
         <activity android:name=".Activity.Search.NewSearchActivity"></activity>
 
+        <activity android:name=".Activity.Search.SearchByUser"></activity>
+
         <activity
             android:name=".Activity.LoginAndRegister.RegisterActivity"
             android:theme="@style/AppTheme.NoActionBar" />

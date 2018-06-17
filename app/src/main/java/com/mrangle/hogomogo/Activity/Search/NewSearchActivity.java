@@ -51,7 +51,7 @@ public class NewSearchActivity extends AppCompatActivity {
     protected static final int REQUEST_EXIT = 2;
 
     protected Pet pet;
-    private DialogFragment messagebox = new MyDialogFragment();
+    protected DialogFragment messagebox = new MyDialogFragment();
 
     /* PRZECHOWUJE WARTOSCI CECH */
     TextView[] textViewTable;

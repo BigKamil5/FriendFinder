@@ -12,10 +12,12 @@ import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.mrangle.hogomogo.Activity.CheckBoxActivity.CreateNewAdvertisement;
 import com.mrangle.hogomogo.Activity.CheckBoxActivity.DefineUserCriterion;
+import com.mrangle.hogomogo.Activity.CheckBoxActivity.SendDataAboutNewPet;
 import com.mrangle.hogomogo.Activity.LoginAndRegister.LoginActivity;
 import com.mrangle.hogomogo.Activity.LoginAndRegister.RegisterActivity;
 import com.mrangle.hogomogo.Activity.LoginAndRegister.SessionManager;
 import com.mrangle.hogomogo.Activity.Search.NewSearchActivity;
+import com.mrangle.hogomogo.Activity.Search.SearchByUser;
 import com.mrangle.hogomogo.Activity.StareDoNaukiAlboSprawdzania.SearchActivity;
 import com.mrangle.hogomogo.Class.ExtensionClass.MyDialogFragment;
 import com.mrangle.hogomogo.Class.Pet;
@@ -31,6 +33,8 @@ public class MenuActivity extends AppCompatActivity {
     private View viewObservedAnimals;
     private Button logoutButton;
     private SessionManager sessionManager;
+
+    private static final int REQUEST_EXIT = 2;
 
 
 
@@ -87,8 +91,12 @@ public class MenuActivity extends AppCompatActivity {
 
     public void startSearch(View v)
     {
-        Intent intent = new Intent(this, SearchActivity.class);
-        StartWithAnimation(v, intent);
+
+        Pet newPet = new Pet();
+        newPet.stringUriImage = "com.google.android.apps.photos.contentprovider/-1/1/content%3A%2F%2Fmedia%2Fexternal%2Fimages%2Fmedia%2F8836/ORIGINAL/NONE/460481698";
+        Intent intent = new Intent(this, SearchByUser.class).putExtra("Pet", newPet);
+        startActivityForResult(intent,REQUEST_EXIT);
+        //StartWithAnimation(v, intent);
     }
 
 
