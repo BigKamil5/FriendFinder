@@ -43,7 +43,7 @@ public class SendDataAboutNewPet extends NewSearchActivity {
         final String TheNeedForActivity = Integer.toString(this.pet.id_atrybuty[Pet.ZAPOTRZEBOWANIE_NA_AKTYWNOSC]).trim();
         final String Ruchliwosc         = Integer.toString(this.pet.id_atrybuty[Pet.RUCHLIWOSC]).trim();
 
-        final String UriImage = this.pet.stringUriImage.trim();
+        final String UriImage = this.pet.stringUriImage;
 
         Toast.makeText(SendDataAboutNewPet.this, (ID + Type + LengthOfHair + TheNeedForActivity), Toast.LENGTH_LONG).show();
 

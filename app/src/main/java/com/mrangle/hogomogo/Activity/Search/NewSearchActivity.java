@@ -1,22 +1,39 @@
 package com.mrangle.hogomogo.Activity.Search;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.DialogFragment;
+import android.app.ProgressDialog;
+import android.content.ContentResolver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Binder;
 import android.os.Build;
+import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.transition.ChangeBounds;
 import android.transition.Transition;
 import android.transition.TransitionManager;
+import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -25,8 +42,12 @@ import android.widget.Toast;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.mrangle.hogomogo.Activity.LoginAndRegister.HomeActivity;
+import com.mrangle.hogomogo.Activity.MenuActivity;
 import com.mrangle.hogomogo.Class.ExtensionClass.MyDialogFragment;
 import com.mrangle.hogomogo.Class.Globals;
 import com.mrangle.hogomogo.Class.Pet;
@@ -36,9 +57,19 @@ import com.mrangle.hogomogo.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class NewSearchActivity extends AppCompatActivity {
@@ -49,6 +80,7 @@ public class NewSearchActivity extends AppCompatActivity {
     private boolean altLayout;
 
     protected static final int REQUEST_EXIT = 2;
+    private final int REQUEST_WRITE_PERMISSION = 200;
 
     protected Pet pet;
     protected DialogFragment messagebox = new MyDialogFragment();
@@ -65,10 +97,13 @@ public class NewSearchActivity extends AppCompatActivity {
 
     ImageView imageView;
 
+    private File storageDirectory;
+
     protected Button btnAccept;
 
     protected ProgressBar loading;
 
+    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,12 +149,16 @@ public class NewSearchActivity extends AppCompatActivity {
 
         imageView                       = findViewById(R.id.imageView);
 
+
         getInformationAboutPet();
     }
 
 
 
-    @SuppressLint("SetTextI18n")
+
+
+
+    @SuppressLint({"SetTextI18n"})
     public void getInformationAboutPet(){
 
         textImie                        .setText(pet.getImie());
@@ -132,11 +171,13 @@ public class NewSearchActivity extends AppCompatActivity {
         textChoroby                     .setText(pet.getChorobyOrazProblemy());
         textOpis                        .setText(pet.getOpis());
 
+        //pet.stringUriImage = "test";
         Uri uri = Uri.parse(pet.stringUriImage);
 
         try {
 
             Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri);
+            //pet.stringUriImage = getStringImage(bitmap);
             PhotoEditor.setImage(imageView, bitmap, uri, getApplicationContext());
         } catch (FileNotFoundException e) {
 
@@ -147,64 +188,19 @@ public class NewSearchActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-    /*
-    public void SendToServer()
-    {
-        //TODO wysyłanie do serwera i tworzenie selekcikow
-        loading.setVisibility(View.VISIBLE);
-        btnAccept.setVisibility(View.GONE);
-
-        final String ID = Integer.toString(this.pet.getId()).trim();
-        final String Type = Integer.toString(this.pet.id_atrybuty[Pet.GATUNEK]).trim();
-        final String LengthOfHair = Integer.toString(this.pet.id_atrybuty[Pet.DLUGOSCSIERSCI]).trim();
-        final String TheNeedForActivity = Integer.toString(this.pet.id_atrybuty[Pet.ZAPOTRZEBOWANIE_NA_AKTYWNOSC]).trim();
-        final String Ruchliwosc = Integer.toString(this.pet.id_atrybuty[Pet.RUCHLIWOSC]).trim();
-
-        Toast.makeText(NewSearchActivity.this, (ID + Type + LengthOfHair + TheNeedForActivity), Toast.LENGTH_LONG).show();
-
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, Globals.URL_ADD_PET,
-                response -> {
-                    try{
-                        JSONObject jsonObject = new JSONObject(response);
-                        String success = jsonObject.getString("success");
-
-                        if (success.equals("1")) {
-                            Toast.makeText(NewSearchActivity.this, "Pet has beed added - Success!", Toast.LENGTH_LONG).show();
-                            loading.setVisibility(View.GONE);
-                            btnAccept.setVisibility(View.VISIBLE);
-                        }
 
 
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                        Toast.makeText(NewSearchActivity.this, "Error! " + e.toString(), Toast.LENGTH_SHORT).show();
-                        loading.setVisibility(View.GONE);
-                        btnAccept.setVisibility(View.VISIBLE);
-                    }
-                },
-                error -> {
-                    Toast.makeText(NewSearchActivity.this, "Error! " + error.toString(), Toast.LENGTH_SHORT).show();
-                    loading.setVisibility(View.GONE);
-                    btnAccept.setVisibility(View.VISIBLE);
-                })
 
-        {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
-                params.put("ID", ID);
-                params.put("Type", Type);
-                params.put("LengthOfHair", LengthOfHair);
-                params.put("TheNeedForActivity",TheNeedForActivity);
-                params.put("Ruchliwosc", Ruchliwosc);
-                return params;
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == REQUEST_WRITE_PERMISSION) {
+            if (grantResults[0] == PackageManager.PERMISSION_DENIED) {
+                Toast.makeText(NewSearchActivity.this, "Sorry!!!, you can't use this app without granting this permission", Toast.LENGTH_LONG).show();
+                finish();
             }
-        };
-
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
-
-    } */
+        }
+    }
 
 
 
@@ -229,15 +225,12 @@ public class NewSearchActivity extends AppCompatActivity {
         }
     }
 
-    /*public void clickGotowe(View v)
-    {
-        SendToServer();                         // wysylanie do bazy danych
-        setResult(REQUEST_EXIT, null);
-        finish();
-    }*/
 
     public void backToMenu(View v)
     {
         finish();
     }
+
+
+
 }

@@ -419,7 +419,6 @@
 
 
                 android:background="@mipmap/check_image"
-                android:onClick="clickGotowe"
 
                 android:textStyle="bold"
 
@@ -561,7 +560,18 @@
     </android.support.constraint.ConstraintLayout>
 
 
+    <Button
+        android:id="@+id/buttonNastepny"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
 
+
+        android:layout_marginBottom="8dp"
+        android:background="@mipmap/cancel_image"
+        android:onClick="backToMenu"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 
