@@ -100,6 +100,7 @@ public class NewSearchActivity extends AppCompatActivity {
     private File storageDirectory;
 
     protected Button btnAccept;
+    protected Button btnNext;
 
     protected ProgressBar loading;
 
@@ -110,7 +111,10 @@ public class NewSearchActivity extends AppCompatActivity {
         setContentView(R.layout.search_advertisement_new);
 
         btnAccept = findViewById(R.id.buttonGotowe);
-        //btnAccept.setOnClickListener(this::clickGotowe);
+
+        btnNext = findViewById(R.id.buttonPoprzedni);
+
+
         
         layout = findViewById(R.id.layout);
         loading = findViewById(R.id.loading);

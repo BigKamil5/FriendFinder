@@ -1,4 +1,4 @@
-package com.mrangle.hogomogo.Activity.CheckBoxActivity;
+package com.mrangle.hogomogo.Activity.Search;
 
 import android.os.Bundle;
 import android.view.View;
@@ -9,7 +9,6 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.mrangle.hogomogo.Activity.Search.NewSearchActivity;
 import com.mrangle.hogomogo.Class.Globals;
 import com.mrangle.hogomogo.Class.Pet;
 
@@ -23,6 +22,7 @@ public class SendDataAboutNewPet extends NewSearchActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        btnNext.setVisibility(View.GONE);
         btnAccept.setOnClickListener(this::clickGotowe);
     }
 
@@ -31,6 +31,8 @@ public class SendDataAboutNewPet extends NewSearchActivity {
         //TODO wysyłanie do serwera i tworzenie selekcikow
         loading.setVisibility(View.VISIBLE);
         btnAccept.setVisibility(View.GONE);
+
+
 
 
 

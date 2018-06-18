@@ -3,14 +3,10 @@ package com.mrangle.hogomogo.Activity;
 import android.Manifest;
 import android.animation.Animator;
 import android.app.DialogFragment;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -22,21 +18,15 @@ import android.widget.Toast;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.mrangle.hogomogo.Activity.CheckBoxActivity.CreateNewAdvertisement;
 import com.mrangle.hogomogo.Activity.CheckBoxActivity.DefineUserCriterion;
-import com.mrangle.hogomogo.Activity.CheckBoxActivity.SendDataAboutNewPet;
-import com.mrangle.hogomogo.Activity.LoginAndRegister.LoginActivity;
-import com.mrangle.hogomogo.Activity.LoginAndRegister.RegisterActivity;
 import com.mrangle.hogomogo.Activity.LoginAndRegister.SessionManager;
 import com.mrangle.hogomogo.Activity.Search.NewSearchActivity;
 import com.mrangle.hogomogo.Activity.Search.SearchByUser;
-import com.mrangle.hogomogo.Activity.StareDoNaukiAlboSprawdzania.SearchActivity;
 import com.mrangle.hogomogo.Class.ExtensionClass.MyDialogFragment;
 import com.mrangle.hogomogo.Class.Globals;
 import com.mrangle.hogomogo.Class.Pet;
@@ -175,7 +165,7 @@ public class MenuActivity extends AppCompatActivity {
     public void startObservedAnimals(View v)
     {
         //messagebox.show(this.getFragmentManager(), "jej!");
-        Intent intent = new Intent(this, NewSearchActivity.class);
+        Intent intent = new Intent(this, DisplayFavoriteAnimals.class);
         StartWithAnimation(v, intent);
 
         //Intent intent = new Intent(this, SearchActivity.class);

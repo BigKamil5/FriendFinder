@@ -561,17 +561,17 @@
 
 
     <Button
-        android:id="@+id/buttonNastepny"
+        android:id="@+id/buttonPoprzedni"
         android:layout_width="75dp"
         android:layout_height="75dp"
-
+        android:visibility="invisible"
 
         android:layout_marginBottom="8dp"
-        android:background="@mipmap/cancel_image"
+        android:background="@drawable/navigate_next"
         android:onClick="backToMenu"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 

@@ -21,7 +21,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.mrangle.hogomogo.Activity.Search.NewSearchActivity;
+import com.mrangle.hogomogo.Activity.Search.SendDataAboutNewPet;
 import com.mrangle.hogomogo.Class.ExtensionClass.InputFilterMinMax;
 import com.mrangle.hogomogo.Class.ExtensionClass.MyDialogFragment;
 import com.mrangle.hogomogo.Class.Pet;
